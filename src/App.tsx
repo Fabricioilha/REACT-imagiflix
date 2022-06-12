@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { useEffect, useState } from 'react';
+import './App.css';
+import Carousel from './components/Carousel/Carousel';
+import Footer from './components/Footer/Footer';
+import Hero from './components/Hero/Hero';
+import Navbar from './components/Navbar/Navbar';
+import { TypeGeneros, getGeneros } from './services/API';
+
+const App = () => {
+  const [Gens, setGen] = useState<TypeGeneros[]>([])
+  
+  const getGen = async ()=>{
+    const req = await getGeneros();
+    setGen(req);
+  }
+
+  useEffect(()=>{ getGen() },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className='relative'>
+        <Navbar />
+        <Hero />
       </header>
-    </div>
-  );
+      <section className='text-white'>
+
+        {Gens.map((item, index)=>(
+          <div key={index} className="overflow-hidden">
+            <p className='text-xl ml-10'>{item.name}</p>
+            <Carousel kgen={item.id} />
+          </div>
+        ))}
+        
+      </section>
+      <footer>
+        <Footer />
+      </footer>
+    </>
+  )
 }
 
 export default App;
