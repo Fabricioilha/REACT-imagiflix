@@ -23,8 +23,8 @@ const Score = ({score, size=50}:typeScore)=>{
     },[score])
     
     return(
-        <span className={`border-4 rounded-full p-2 inline bg-black opacity-75 w-[${size}px] h-[${size}px] text-center`}
-            style={{borderColor:`${cor}`}}>
+        <span className={`border-4 rounded-full p-2 inline bg-black opacity-75 text-center`}
+            style={{borderColor:`${cor}`, width:`${size}px`, height:`${size}px`}}>
             {score}
         </span>
     )

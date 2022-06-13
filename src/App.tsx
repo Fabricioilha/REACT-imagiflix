@@ -24,8 +24,12 @@ const App = () => {
         <Hero />
       </header>
       <section className='text-white'>
+        <div className="overflow-hidden">
+          <p className='text-xl ml-10'>Populares na ImagineFlix</p>
+          <Carousel/>
+        </div>
 
-        {Gens.map((item, index)=>(
+        {Gens?.slice(5,9).map((item, index)=>(
           <div key={index} className="overflow-hidden">
             <p className='text-xl ml-10'>{item.name}</p>
             <Carousel kgen={item.id} />

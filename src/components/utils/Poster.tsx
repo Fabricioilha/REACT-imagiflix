@@ -8,6 +8,10 @@ type Props = {
     poster_path?:string
 }
 
+const showModal = ()=>{
+    return 0;
+}
+
 const Poster = ({title="Titulo do Filme",score=10,poster_path}:Props) =>{
     return(
         <article className="
@@ -19,19 +23,21 @@ const Poster = ({title="Titulo do Filme",score=10,poster_path}:Props) =>{
             transition-duration-200
             mx-2 cursor-pointer
             shadow-2xl rounded
-            ">
+            "
+            onClick={showModal}>
             
             <div className="
+                hidden
                 absolute 
                 inset-0 
                 bg-black 
                 opacity-0 
                 hover:opacity-90
-                hidden
                 2xl:flex flex-col 
                 justify-center 
                 gap-4 bg-black 
                 px-2 items-center
+                box-border
                 " >
                 <FontAwesomeIcon icon={faPlayCircle} size="5x" />
                 <p className="hidden 2xl:block">{title}</p>

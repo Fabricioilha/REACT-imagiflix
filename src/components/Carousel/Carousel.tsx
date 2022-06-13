@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Poster from "../utils/Poster";
 
 type Props = {
-    kgen:number
+    kgen?:number
 }
 
 const Carousel = ({kgen}:Props) => {
