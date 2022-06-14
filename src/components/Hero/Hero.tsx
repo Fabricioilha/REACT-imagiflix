@@ -13,7 +13,7 @@ const Hero = ()=>{
     useEffect(
         () => {
             if (num < 20) {
-                const id = setInterval(timer, 10000);
+                const id = setInterval(timer, 15000);
                 console.log(num);
                 getMovie()
                 return () => clearInterval(id);
@@ -24,12 +24,6 @@ const Hero = ()=>{
         },
         [num]
     );
-    
-    // useEffect(()=>{
-        
-    //     getMovie()
-        
-    // },[])
     
     const getMovie = async ()=>{
         const movies = await getPopularity();
