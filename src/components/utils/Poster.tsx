@@ -4,15 +4,21 @@ import Score from "./Score";
 
 type Props = {
     title?:string,
-    score?:number,
-    poster_path?:string
+    score?:number, 
+    poster_path?:string,
+    id?:number,
+    adult?:boolean,
+    backdrop_path?:string,
+    genre_ids?:number[],
+    overview?:string,
+    video?:boolean
 }
 
-const showModal = ()=>{
-    return 0;
-}
 
-const Poster = ({title="Titulo do Filme",score=10,poster_path}:Props) =>{
+const Poster = (props:Props) =>{
+    const showModal = ()=>{
+        console.log(props.id);
+    }
     return(
         <article className="
             relative 
@@ -38,13 +44,13 @@ const Poster = ({title="Titulo do Filme",score=10,poster_path}:Props) =>{
                 gap-4 bg-black 
                 px-2 items-center
                 box-border
-                " >
+                ">
                 <FontAwesomeIcon icon={faPlayCircle} size="5x" />
-                <p className="hidden 2xl:block">{title}</p>
-                <Score score={score}/>
+                <p className="hidden 2xl:block">{props.title}</p>
+                <Score score={props.score}/>
             </div>
             <div>
-                <img src={`https://image.tmdb.org/t/p/original/${poster_path}`} className="rounded w-full h-full" alt="" />
+                <img src={`https://image.tmdb.org/t/p/original/${props.poster_path}`} className="rounded w-full h-full" alt="" />
             </div>
             
         </article>

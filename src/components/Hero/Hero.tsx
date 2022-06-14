@@ -7,17 +7,38 @@ import Score from "../utils/Score"
 
 const Hero = ()=>{
     const [destac, setDesctac] = useState<TypePopularity>()
+    const [num, setN] = useState(0)
+    const timer = () => setN(num + 1);
+
+    useEffect(
+        () => {
+            if (num < 20) {
+                const id = setInterval(timer, 10000);
+                console.log(num);
+                getMovie()
+                return () => clearInterval(id);
+            }else{
+                setN(0);
+                getMovie()
+            }
+        },
+        [num]
+    );
     
-    useEffect(()=>{
-        getMovie()
-    },[])
+    // useEffect(()=>{
+        
+    //     getMovie()
+        
+    // },[])
     
     const getMovie = async ()=>{
         const movies = await getPopularity();
-        const movie = movies[0] 
+        const movie = movies[num] 
         setDesctac(movie);
         
     }
+
+
 
     return(
         <div className="h-[90vh] w-full text-white ">

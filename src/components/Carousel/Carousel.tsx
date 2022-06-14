@@ -50,7 +50,17 @@ const Carousel = ({kgen}:Props) => {
             <Slider {...settings} className="relative py-5" >
 
                 {movies?.shift() && movies?.map((movie,index)=>(
-                    <Poster title={movie.title} score={movie.vote_average} poster_path={movie.poster_path} key={index} />
+                    <Poster 
+                        title={movie.title} 
+                        score={movie.vote_average} 
+                        poster_path={movie.poster_path}
+                        id={movie.id}
+                        adult={movie.adult}
+                        backdrop_path={movie.backdrop_path}
+                        genre_ids={movie.genre_ids}
+                        overview={movie.overview}
+                        video={movie.video}
+                        key={index} />
                 ))}
 
             </Slider>
