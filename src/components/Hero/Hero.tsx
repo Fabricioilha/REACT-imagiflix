@@ -31,9 +31,6 @@ const Hero = ()=>{
         setDesctac(movie);
         
     }
-
-
-
     return(
         <div className="h-[90vh] w-full text-white ">
             <img src={`https://image.tmdb.org/t/p/original/${destac?.backdrop_path}`} alt="" className="h-full w-full object-cover object-top"/>

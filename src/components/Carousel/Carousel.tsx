@@ -42,14 +42,14 @@ const Carousel = ({kgen}:Props) => {
         slidesToShow: 10,
         arrows: true,
         rows:1,
-        nextArrow: <SlickArrow direction={Direction.right} onClick={onclick} />,
-        prevArrow: <SlickArrow direction={Direction.left} onClick={onclick} />
+        nextArrow: <SlickArrow direction={Direction.left} onClick={onclick} />,
+        prevArrow: <SlickArrow direction={Direction.right} onClick={onclick} />
     }
 
     return (
             <Slider {...settings} className="relative py-5" >
 
-                {movies?.shift() && movies?.map((movie,index)=>(
+                {movies  && movies?.map((movie,index)=>(
                     <Poster 
                         title={movie.title} 
                         score={movie.vote_average} 
