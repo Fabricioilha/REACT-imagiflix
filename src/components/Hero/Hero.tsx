@@ -14,7 +14,6 @@ const Hero = ()=>{
         () => {
             if (num < 20) {
                 const id = setInterval(timer, 15000);
-                console.log(num);
                 getMovie()
                 return () => clearInterval(id);
             }else{
@@ -22,6 +21,7 @@ const Hero = ()=>{
                 getMovie()
             }
         },
+        // eslint-disable-next-line
         [num]
     );
     

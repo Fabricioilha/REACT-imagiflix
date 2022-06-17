@@ -3,7 +3,7 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import Slider from "react-slick";
 import { getPopularity, TypePopularity } from "../../services/API";
 import { useEffect, useState } from "react";
-import Poster from "../utils/Poster";
+import Poster from "./Poster";
 
 type Props = {
     kgen?:number
