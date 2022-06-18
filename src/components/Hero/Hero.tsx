@@ -2,6 +2,7 @@ import { faPlay, faPlus } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 import { getPopularity, TypePopularity } from "../../services/API"
+import { event } from '../../components/Carousel/Poster';
 import Score from "../utils/Score"
 
 
@@ -31,6 +32,9 @@ const Hero = ()=>{
         setDesctac(movie);
         
     }
+    const postHandleClick = ()=>{
+        event.emit("PosterClicked",destac);
+    }
     return(
         <div className="h-[90vh] w-full text-white ">
             <img src={`https://image.tmdb.org/t/p/original/${destac?.backdrop_path}`} alt="" className="h-full w-full object-cover object-top"/>
@@ -40,7 +44,7 @@ const Hero = ()=>{
                 <p className="text-5xl font-bold">{destac?.title}</p>
                     <span className="flex gap-5 items-center">Nota:<Score score={destac?.vote_average} /></span>
                 <div className=" flex mt-5 text-lg">
-                    <button className="mr-5 px-6 py-2 rounded bg-black opacity-60 hover:opacity-100">
+                    <button className="mr-5 px-6 py-2 rounded bg-black opacity-60 hover:opacity-100" onClick={postHandleClick}>
                         <FontAwesomeIcon icon={faPlay} className="mr-2" />
                             Assistir
                     </button>

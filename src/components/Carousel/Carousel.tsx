@@ -52,7 +52,7 @@ const Carousel = ({kgen}:Props) => {
                 {movies  && movies?.map((movie,index)=>(
                     <Poster 
                         title={movie.title} 
-                        score={movie.vote_average} 
+                        vote_average={movie.vote_average} 
                         poster_path={movie.poster_path}
                         id={movie.id}
                         adult={movie.adult}

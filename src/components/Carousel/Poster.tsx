@@ -5,7 +5,7 @@ import Score from "../utils/Score";
 
 export type PropsMovies = {
     title?: string,
-    score?: number,
+    vote_average?: number,
     poster_path?: string,
     id?: number,
     adult?: boolean,
@@ -52,7 +52,7 @@ const Poster = (props: PropsMovies) => {
             >
                 <FontAwesomeIcon icon={faPlayCircle} size="5x" />
                 <p className="hidden 2xl:block">{props.title}</p>
-                <Score score={props.score} />
+                <Score score={props.vote_average} />
             </div>
             <div>
                 <img src={`https://image.tmdb.org/t/p/original/${props.poster_path}`} className="rounded w-full h-full" alt="" />
